@@ -24,8 +24,8 @@ std::string getHeader(std::string &str){
 int main(){
     std::cout << "#######--Capturing the title of a web page--########\n\n";
 
-    auto responce = cpr::Get(cpr::Url("http://httpbin.org/html")).text;
-    std::cout << getHeader(responce) << "\n";
+    auto responce = cpr::Get(cpr::Url("http://httpbin.org/html"), cpr::Header({{"Accept", "text/html"}})).text;
 
+    std::cout << getHeader(responce) << "\n";
     return 0;
 }
